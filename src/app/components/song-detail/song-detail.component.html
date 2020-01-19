@@ -1,0 +1,25 @@
+<div class="card" *ngIf="song">
+    <div class="picture">
+      <img src="assets/{{song.picture}}"/>
+    </div>
+    <div class="songData">
+      <span class="album">{{song.album}}</span>
+      <span class="title">{{song.title}}</span>
+      <span class="author">{{song.author}}</span>
+      <ul class="metadata">
+        <li>
+          <span>Style</span>
+          <span>{{song.style}}</span>
+        </li>
+        <li>
+          <span>Year</span>
+          <span>{{song.year}}</span>
+        </li>
+        <li>
+          <span>Duration</span>
+          <span>{{song.duration}}</span>
+        </li>
+      </ul>
+      <p>{{song.description}}</p>
+    </div>
+  </div>
