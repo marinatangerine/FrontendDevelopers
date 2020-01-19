@@ -1,25 +1,29 @@
-<div class="card">
-  <div class="picture">
-    <img src="assets/{{picture}}"/>
-  </div>
-  <div class="songData">
-    <span class="album">{{album}}</span>
-    <span class="title">{{title}}</span>
-    <span class="author">{{author}}</span>
-    <ul class="metadata">
+<section class="card">
+  <div class="card__picture" [ngStyle]="{ 'background-image': 'url(assets/'+picture+')'}"></div>
+  <div class="card__songData">
+    <h4 class="card__songData__album">{{album}}</h4>
+    <h3 class="card__songData__title">{{title}}</h3>
+    <h5 class="card__songData__author">{{author}}</h5>
+    <ul class="card__songData__metadata">
       <li>
-        <span>Style</span>
-        <span>{{style}}</span>
+        <dl>
+          <dt>Style</dt>
+          <dd>{{style}}</dd>
+        </dl>
       </li>
       <li>
-        <span>Year</span>
-        <span>{{year}}</span>
+        <dl>
+          <dt>Year</dt>
+          <dd>{{year}}</dd>
+        </dl>
       </li>
       <li>
-        <span>Duration</span>
-        <span>{{duration}}</span>
+        <dl>
+          <dt>Duration</dt>
+          <dd>{{duration}}</dd>
+        </dl>
       </li>
     </ul>
-    <p>{{description}}</p>
+    <p class="card__songData__desc">{{description}} <a href="#">Más info</a></p>
   </div>
-</div>
+</section>
