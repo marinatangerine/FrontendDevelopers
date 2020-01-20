@@ -1,0 +1,97 @@
+.playList{
+    position: relative;
+    width: 60vw;
+    padding: 0 0 0 40vw;
+}
+
+.playList__body{
+    display: flex;
+    width: 60vw;
+    justify-content: flex-end;
+}
+
+    .playList__songs{
+        padding: 18px;
+        width: 100%;
+    }
+
+    .playList__songs__details{
+        height: calc(100vh - 116px);
+        max-width: 40%;
+        min-width: 387px;
+        background-color: #ececec
+    }
+
+.playList__songs__header{
+    margin-bottom: 2.7rem;
+}
+
+    .playList__header h2 {
+        font-size: 3rem;
+        font-weight: 900;
+    }
+
+.song{
+    padding: 18px;
+    display: flex;
+    cursor: pointer;
+}
+
+.song.selected{
+    background-color: #5c5c5c;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.song:hover:not(.selected){
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 5px;
+}
+
+    .song__info{
+        display: flex;
+        flex-basis: 100%;
+        justify-content: space-between;
+    }
+
+    .song__info__right{
+        padding-left: 20px;
+    }
+
+    .song__info__right,
+    .song__info__left{
+        justify-content: center;
+        align-items: end;
+        display: flex;
+        flex-flow: column;
+    }
+
+    .song__cover{
+        width: 67px;
+        height: 67px;
+        border-radius: 5px;
+        background-color: #fff;
+        margin-right: 19px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .song__info__title,
+    .song__info__style{
+        font-weight: 1.6rem;
+        font-weight: 900;
+        margin-bottom: 8px;
+    }
+
+    .song__info__author{
+        font-weight: 1.6rem;
+        font-weight: 400;
+    }
+
+    .song__info__duration{
+        font-weight: 1.8rem;        
+    }
+
+    .song.selected .song__info [class*="song__info__"]{
+        color: #fff;
+    }

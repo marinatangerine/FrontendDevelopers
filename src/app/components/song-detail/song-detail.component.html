@@ -1,29 +1,31 @@
-<section class="card" *ngIf="song">
-        <div class="card__picture" [ngStyle]="{ 'background-image': 'url(assets/'+song.picture+')'}"></div>
-        <div class="card__songData">
-          <h4 class="card__songData__album">{{song.album}}</h4>
-          <h3 class="card__songData__title">{{song.title}}</h3>
-          <h5 class="card__songData__author">{{song.author}}</h5>
-          <ul class="card__songData__metadata">
-            <li>
-              <dl>
-                <dt>Style</dt>
-                <dd>{{song.style}}</dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>Year</dt>
-                <dd>{{song.year}}</dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>Duration</dt>
-                <dd>{{song.duration}}</dd>
-              </dl>
-            </li>
-          </ul>
-          <p class="card__songData__desc">{{song.description}} <a href="#">Más info</a></p>
-        </div>
-      </section>
+<div class="playList__songs__details" *ngIf="song">
+  <section class="card">
+          <div class="card__picture" [ngStyle]="{ 'background-image': 'url(assets/'+song.picture+')'}"></div>
+          <div class="card__songData">
+            <h4 class="card__songData__album">{{song.album}}</h4>
+            <h3 class="card__songData__title">{{song.title}}</h3>
+            <h5 class="card__songData__author">{{song.author}}</h5>
+            <ul class="card__songData__metadata">
+              <li>
+                <dl>
+                  <dt>Style</dt>
+                  <dd>{{song.style}}</dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt>Year</dt>
+                  <dd>{{song.year}}</dd>
+                </dl>
+              </li>
+              <li>
+                <dl>
+                  <dt>Duration</dt>
+                  <dd>{{song.duration}}</dd>
+                </dl>
+              </li>
+            </ul>
+            <p class="card__songData__desc">{{song.description}} <a href="#">Más info</a></p>
+          </div>
+  </section>
+</div>
