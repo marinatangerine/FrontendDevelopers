@@ -1,11 +1,31 @@
-<h2>My Playlist</h2>
+<div class="playList">
+    <div class="playList__body">
+        <div class="playList__songs">
+            <div class="playList__songs__header">
+                <h2>My Playlist</h2>
+            </div>
+            <ul class="songs">
+                <li class="song" 
+                *ngFor="let song of songs"
+                [class.selected]="song === selectedSong"
+                (click)="onSelect(song)">
+                    <div class="song__cover" [ngStyle]="{ 'background-image': 'url(assets/'+song.cover+')'}"></div>
+                    <div class="song__info">
+                        <div class="song__info__left">
+                            <div class="song__info__title">{{song.title}}</div>
+                            <div class="song__info__author">{{song.author}}</div>
+                        </div>
+                        <div class="song__info__right">
+                            <div class="song__info__style">{{song.style}}</div>
+                            <div class="song__info__duration">{{song.duration}}</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="playList__songs__details">
+            <app-song-detail [song]="selectedSong"></app-song-detail>
+        </div>
+    </div>
 
-<ul class="songs">
-    <li *ngFor="let song of songs"
-    [class.selected]="song === selectedSong"
-    (click)="onSelect(song)">
-    <span class="badge">{{song.id}}</span> {{song.title}}
-    </li>
-</ul>
-
-<app-song-detail [song]="selectedSong"></app-song-detail>
+</div>
