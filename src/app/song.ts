@@ -8,4 +8,5 @@ export class Song {
     duration: string;
     description: string;
     picture: string;
+    cover: string;
   }
