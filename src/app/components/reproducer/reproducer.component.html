@@ -1,0 +1,22 @@
+<section class="reproducer">
+    <div class="reproducer__trackInfo">
+        <div class="reproducer__trackInfo__cover" [ngStyle]="{ 'background-image': 'url(assets/'+song.cover+')'}"></div>
+        <div class="reproducer__trackInfo__data">
+            <div class="reproducer__trackInfo__data__songTitle">{{song.title}}</div>
+            <div class="reproducer__trackInfo__data__songAuthor">{{song.author}}</div>
+        </div>
+    </div>
+    <div class="reproducer__trackInfo__controls">
+        <div class="reproducer__actions">
+            <button class="reproducer__actions__back" type="button"></button>
+            <button class="reproducer__actions__play" type="button"></button>
+            <button class="reproducer__actions__pause" type="button"></button>
+            <button class="reproducer__actions__forward" type="button"></button>
+        </div>
+        <div class="reproducer__track">
+            <div class="reproducer__track__timePlayed">01:20</div>
+            <div class="reproducer__track__bar"></div>
+            <div class="reproducer__track__timeDuration">03:00 {{song.duration}}</div>
+        </div>
+    </div>
+</section>

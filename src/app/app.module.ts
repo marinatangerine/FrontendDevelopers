@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PlaylistComponent } from './components/playlist/playlist.component';
 import { SongDetailComponent } from './components/song-detail/song-detail.component';
+import { ReproducerComponent } from './components/reproducer/reproducer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlaylistComponent,
-    SongDetailComponent
+    SongDetailComponent,
+    ReproducerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,14 @@
 .playList{
-    position: relative;
-    width: 60vw;
-    padding: 0 0 0 40vw;
+    width: 70vw;
+    padding: 0 0 0 30vw;
+    box-sizing: content-box;
 }
 
 .playList__body{
     display: flex;
-    width: 60vw;
+    width: 70vw;
     justify-content: flex-end;
+    height: calc(100vh - 119px);
 }
 
     .playList__songs{
@@ -16,7 +17,7 @@
     }
 
     .playList__songs__details{
-        height: calc(100vh - 116px);
+        height: 100%;
         max-width: 40%;
         min-width: 387px;
         background-color: #ececec
@@ -64,6 +65,7 @@
         align-items: end;
         display: flex;
         flex-flow: column;
+        padding-left: 19px;
     }
 
     .song__cover{
@@ -71,7 +73,6 @@
         height: 67px;
         border-radius: 5px;
         background-color: #fff;
-        margin-right: 19px;
         background-size: cover;
         background-position: center;
     }
