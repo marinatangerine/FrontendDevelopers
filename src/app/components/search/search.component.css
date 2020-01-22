@@ -1,0 +1,11 @@
+.search{
+    position: relative;
+    width: 60vw;
+    padding: 0 0 0 40vw;
+}
+
+.search__body{
+    display: flex;
+    width: 60vw;
+    justify-content: left;
+}
