@@ -1,4 +1,4 @@
-<section class="reproducer">
+<section class="reproducer" *ngIf="song">
     <div class="reproducer__trackInfo">
         <div class="reproducer__trackInfo__cover" [ngStyle]="{ 'background-image': 'url(assets/'+song.cover+')'}"></div>
         <div class="reproducer__trackInfo__data">
@@ -14,9 +14,9 @@
             <button class="reproducer__actions__forward" type="button"></button>
         </div>
         <div class="reproducer__track">
-            <div class="reproducer__track__timePlayed">01:20</div>
+            <div class="reproducer__track__timePlayed"></div>
             <div class="reproducer__track__bar"></div>
-            <div class="reproducer__track__timeDuration">03:00 {{song.duration}}</div>
+            <div class="reproducer__track__timeDuration">{{song.duration}}</div>
         </div>
     </div>
 </section>
