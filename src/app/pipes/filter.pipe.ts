@@ -6,10 +6,10 @@ import { Song } from '../song';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: any, ...arg: any[]): any {
+  transform(value: any, arg: any[]): any {
     const resultSong = [];
     for(const search of value){
-      if(search.title.indexOf(arg)> -1){
+      if(search.title.toLowerCase().indexOf(arg.toLowerCase()) > -1){
         resultSong.push(search);
       }
 

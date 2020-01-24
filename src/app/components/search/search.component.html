@@ -1,5 +1,5 @@
-<div class = "searcher">
-    <h1>Song</h1>
+<div class = "container">
+    <h1>Songs List</h1>
     <div class="row">
       <div class="col">
         <div class="form-group">
@@ -12,17 +12,17 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>id</th>
+              <th>Autor</th>
               <th>Title</th>
               <th>album</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let song of songs | filter:filterSongs">
-              [class.selected]="song === selectedSong"
-              <td>{{search.id}}</td>
-              <td>{{search.title}}</td>
-              <td>{{search.album}}</td>
+            <tr *ngFor="let item of search | filter:filterSongs">
+              
+              <td>{{item.author}}</td>
+              <td>{{item.title}}</td>
+              <td>{{item.album}}</td>
             </tr>
           </tbody>
         </table>
