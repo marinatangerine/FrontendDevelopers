@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Song } from '../../song';
 import { SONGS } from '../../mock-songs';
+import { ReproducerComponent } from '../reproducer/reproducer.component'
 
 @Component({
   selector: 'app-playlist',
@@ -9,8 +10,11 @@ import { SONGS } from '../../mock-songs';
 })
 export class PlaylistComponent implements OnInit {
 
+  @ViewChild(ReproducerComponent, {static: false}) player:ReproducerComponent ;
+
   songs = SONGS;
   selectedSong: Song;
+  playedSong: Song;
   
   constructor() { }
 
@@ -19,6 +23,10 @@ export class PlaylistComponent implements OnInit {
 
   onSelect(song: Song): void {
     this.selectedSong = song;
+  }
+
+  onPlay(song: Song): void {
+    this.playedSong = song;
   }
 
 }
