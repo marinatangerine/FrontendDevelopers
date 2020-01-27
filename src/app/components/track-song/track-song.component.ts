@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 import { Song } from '../../song';
 
 @Component({
@@ -9,24 +10,26 @@ import { Song } from '../../song';
 export class TrackSongComponent implements OnInit {
   
   @Input() song:Song;
+  @Input() valuePlayedTime:number;
   @Input() audio:HTMLAudioElement;
+  
+  //usamos función del padre
+  @Output() refreshTimePlayed: EventEmitter<any> = new EventEmitter<any>();
+
   resetTrack = true;
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit() {
-    console.log(`audio: ${this.audio.currentTime}`)
+    console.log(`value: ${this.valuePlayedTime}`)
   }
 
-  trackbarDuration(time){
-      let played = this.audio.currentTime,
-      percent = played * 100 / this.audio.duration;
-      if(time != undefined) {
-        this.resetTrack = true;
-        return time;
-      }else{
-        this.resetTrack = false;
-        return percent;
-      }
+  percentToSeconds(event: any){
+    let percentPlayed = event.value,
+        duration = this.audio.duration,
+        totalSeconds =  (percentPlayed * duration) / 100;
+    this.refreshTimePlayed.emit(totalSeconds);
   }
+
 }

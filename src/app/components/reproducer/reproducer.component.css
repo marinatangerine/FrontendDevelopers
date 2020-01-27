@@ -1,3 +1,8 @@
+::placeholder{
+    color:#fff;
+    opacity: 1;
+}
+
 .reproducer{
     background-color: #6f6f6f;
     padding: 20px 36px;
@@ -102,8 +107,21 @@
                 max-width: 55px;
                 display: flex;
                 justify-content: center;
+                align-self: center;
             }
-    
+
+            .reproducer__track__timePlayed input{
+                width: 100%;
+                background-color: transparent;
+                border: 0;
+                color: #fff;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                position: relative;
+                top: -1px;
+            }
+            
             app-track-song{
                 width: 80%;
             }
@@ -115,12 +133,12 @@
     }
 
         .reproducer__actions button{
-            font-size: 40px;
-            margin: 0 10px;
+            font-size: 35px;
+            margin: 0 10px 10px;
             border-radius: 5px;
             color: #fff;
             background-color: transparent;
             border: 0;
-            padding: 0;
+            padding: 0
         }
 

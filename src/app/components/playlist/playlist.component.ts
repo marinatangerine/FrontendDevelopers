@@ -8,14 +8,12 @@ import { ReproducerComponent } from '../reproducer/reproducer.component'
   templateUrl: './playlist.component.html',
   styleUrls: ['./playlist.component.css']
 })
+
 export class PlaylistComponent implements OnInit {
-
   @ViewChild(ReproducerComponent, {static: false}) player:ReproducerComponent ;
-
   songs = SONGS;
   selectedSong: Song;
   playedSong: Song;
-  
   constructor() { }
 
   ngOnInit() {
@@ -27,6 +25,6 @@ export class PlaylistComponent implements OnInit {
 
   onPlay(song: Song): void {
     this.playedSong = song;
+    this.player.onStop();
   }
-
 }

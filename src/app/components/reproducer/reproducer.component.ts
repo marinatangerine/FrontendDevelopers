@@ -15,21 +15,22 @@ export class ReproducerComponent implements OnInit {
 
   audio: HTMLAudioElement;
   interval: NodeJS.Timer;
+  valuePlayedTime:string;
 
   currentAudio = this.audio;
-  stop = true;
+  stop = true;  
   
-  
-  constructor() { }
-
-  ngOnInit() {
-    this.audio = new Audio();
-    durationTrackbar: this.audio.duration;
+  constructor() { 
+    this.toHumanTime(0);
   }
 
+  ngOnInit() {
+    this.valuePlayedTime = '00:00'
+  }
   
 
   ngOnChanges() {
+    this.audio = new Audio();
     this.audio.src = this.song.audio_url;
     this.onPlay();
   }
@@ -53,17 +54,52 @@ export class ReproducerComponent implements OnInit {
   onStop() {
     clearInterval(this.interval);
     this.audio.src = this.song.audio_url;
-    this.tracksong.trackbarDuration(0);
     this.stop = true;
   }
 
   toHumanTime(length) {
+    //console.log(`toHumanTime() -> length: ${length}`);
     var minutes = Math.floor(length / 60),
-      seconds_int = length - minutes * 60,
-      seconds_str = seconds_int.toString(),
-      seconds = seconds_int < 10 ? seconds_str.substr(0, 1) : seconds_str.substr(0, 2),
-      time = (minutes < 10 ? "0" + minutes : minutes) + ':' + (seconds_int < 10 ? "0" + seconds : seconds)
+    seconds_int = length - minutes * 60,
+    seconds_str = seconds_int.toString(),
+    seconds = seconds_int < 10 ? seconds_str.substr(0, 1) : seconds_str.substr(0, 2),
+    time = (minutes < 10 ? "0" + minutes : minutes) + ':' + (seconds_int < 10 ? "0" + seconds : seconds);
     return time;
   }
+
+  refreshTimePlayed(event){
+    //console.log(`event: ${event.value}`);
+    this.toHumanTime(event.value)
+  }
+
+  toPercent(time) {
+      let duration = this.audio.duration;
+      let minToSec = time.split(':');
+      let minutos = Math.floor(parseInt(minToSec[0]) * 60);
+      if(minToSec[1][0] === "0"){
+        minToSec[1] = minToSec[1][1]
+      }
+      let segundos = Math.floor(parseInt(minToSec[1]));
+      return Math.floor(minutos + segundos) * 100 / duration;
+  }
+
+  toSeconds(time){
+    let duration = this.audio.duration;
+    let minToSec = time.split(':');
+    let minutos = Math.floor(parseInt(minToSec[0]) * 60);
+    if(minToSec[1][0] === "0"){
+      minToSec[1] = minToSec[1][1]
+    }
+    let segundos = Math.floor(parseInt(minToSec[1]));
+    return minutos + segundos;
+  }
+
+  changeCurrentTime(){
+    //console.log(`valuePlayedTime: ${this.valuePlayedTime}`);
+    this.audio.currentTime = this.toSeconds(this.valuePlayedTime);
+    this.toHumanTime(this.audio.currentTime);
+  }
+
+
   
 }
