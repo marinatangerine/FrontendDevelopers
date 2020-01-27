@@ -1,0 +1,30 @@
+<section class="reproducer" [ngClass]="{'active': song}" *ngIf="song">
+  <div class="reproducer__trackInfo">
+    <div class="reproducer__trackInfo__cover" [ngStyle]="{ 'background-image': 'url(assets/'+song.cover+')'}"></div>
+    <div class="reproducer__trackInfo__data">
+      <div class="reproducer__trackInfo__data__songTitle">{{song.title}}</div>
+      <div class="reproducer__trackInfo__data__songAuthor">{{song.author}}</div>
+    </div>
+  </div>
+  <div class="reproducer__trackInfo__controls">
+    <div class="reproducer__actions">
+      <button *ngIf="stop" class="reproducer__actions__play" type="button" (click)="onPlay()">
+        <i class="fas fa-play"></i>
+      </button>
+      <button *ngIf="!stop" class="reproducer__actions__pause" type="button" (click)="onPause()">
+        <i class="fas fa-pause"></i>
+      </button>
+      <button class="reproducer__actions__stop" type="button" (click)="onStop()">
+        <i class="fas fa-stop"></i>
+      </button>
+    </div>
+    <div class="reproducer__track">
+      <div class="reproducer__track__timePlayed">
+        <input (focus)="onPause()" type="text" placeholder="{{valuePlayedTime}}" name="timePlayed" [(ngModel)]="valuePlayedTime" value="{{toHumanTime(audio.currentTime)}}" (change)="changeCurrentTime()">
+      </div>
+      <!-- -->
+      <app-track-song (refreshTimePlayed)="refreshTimePlayed($event)" [valuePlayedTime]="toPercent(toHumanTime(audio.currentTime))" [song]="song" [audio]="audio"></app-track-song>
+      <div class="reproducer__track__timeDuration">{{song.duration}}</div>
+    </div>
+  </div>
+</section>
