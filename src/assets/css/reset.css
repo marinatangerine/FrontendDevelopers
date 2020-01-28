@@ -377,3 +377,7 @@ body{
     font-family: 'Lato', sans-serif;
     background-color: #d8d8d8;
 }
+
+* {
+    box-sizing: border-box;
+}
