@@ -14,6 +14,8 @@ export class PlaylistComponent implements OnInit {
   songs = SONGS;
   selectedSong: Song;
   playedSong: Song;
+  filterSongs:string;
+
   constructor() { }
 
   ngOnInit() {
@@ -26,5 +28,10 @@ export class PlaylistComponent implements OnInit {
   onPlay(song: Song): void {
     this.playedSong = song;
     this.player.onStop();
+  }
+
+  filter(event){
+    console.log(`filter: ${event}`);
+    this.filterSongs = event;
   }
 }

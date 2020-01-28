@@ -6,6 +6,10 @@
     height: 100vh;
 }
 
+.playList h2{
+    font-size: 30px;
+}
+
 .playList__body{
     display: flex;
     justify-content: flex-end;

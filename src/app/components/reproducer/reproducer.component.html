@@ -20,7 +20,7 @@
     </div>
     <div class="reproducer__track">
       <div class="reproducer__track__timePlayed">
-        <input (focus)="onPause()" type="text" placeholder="{{valuePlayedTime}}" name="timePlayed" [(ngModel)]="valuePlayedTime" value="{{toHumanTime(audio.currentTime)}}" (change)="changeCurrentTime()">
+        <input (focus)="onPause()" type="text" placeholder="{{valuePlayedTime}}" name="timePlayed" [(ngModel)]="valuePlayedTime" value="{{toHumanTime(audio.currentTime)}}" (keyup)="changeCurrentTime()">
       </div>
       <!-- -->
       <app-track-song (refreshTimePlayed)="refreshTimePlayed($event)" [valuePlayedTime]="toPercent(toHumanTime(audio.currentTime))" [song]="song" [audio]="audio"></app-track-song>

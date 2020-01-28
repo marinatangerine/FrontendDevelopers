@@ -68,8 +68,9 @@ export class ReproducerComponent implements OnInit {
   }
 
   refreshTimePlayed(event){
-    //console.log(`event: ${event.value}`);
-    this.toHumanTime(event.value)
+    console.log(`event: ${event}`);
+    this.valuePlayedTime = this.toHumanTime(event);
+    this.audio.currentTime = this.toSeconds(this.valuePlayedTime);
   }
 
   toPercent(time) {
