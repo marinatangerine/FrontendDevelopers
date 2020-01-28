@@ -1,22 +1,29 @@
 .playList{
     position: relative;
-    width: 60vw;
-    padding: 0 0 0 40vw;
+    width: 70vw;
+    margin: 0 0 0 30vw;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.playList h2{
+    font-size: 30px;
 }
 
 .playList__body{
     display: flex;
-    width: 60vw;
     justify-content: flex-end;
+    position: relative;
+    height: 100vh;
 }
 
     .playList__songs{
-        padding: 18px;
+        padding: 18px 9px 18px 18px;
         width: 100%;
     }
 
     .playList__songs__details{
-        height: calc(100vh - 116px);
+        height: 100vh;
         max-width: 40%;
         min-width: 387px;
         background-color: #ececec
@@ -30,6 +37,13 @@
         font-size: 3rem;
         font-weight: 900;
     }
+
+.wrapper-songs{
+    max-height: calc(100vh - 205px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 15px;
+}
 
 .song{
     padding: 18px;
@@ -50,7 +64,7 @@
 
     .song__info{
         display: flex;
-        flex-basis: 100%;
+        flex-basis: 70%;
         justify-content: space-between;
     }
 
@@ -67,14 +81,46 @@
     }
 
     .song__cover{
-        width: 67px;
+        max-width: 67px;
+        width: 30%;
         height: 67px;
         border-radius: 5px;
         background-color: #fff;
         margin-right: 19px;
         background-size: cover;
         background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease-out;
+        transform-origin: center;
+        border: 1px solid #666;
     }
+        .song__cover:before{
+            width: 100%;
+            height: 100%;
+            content: "";
+            position: absolute;
+            background-color: rgba(0,0,0,0.1);
+        }
+
+        .song__cover:hover{
+            font-size: 25px;
+            transform: scale(1.1);
+            box-shadow:  2px 2px 14px 0px rgba(50, 50, 50, 0.38);
+        }
+
+            .song__cover:before:hover{
+                background-color: rgba(0,0,0,0.5);
+            }
+
+        .song__cover .fas{
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+        
 
     .song__info__title,
     .song__info__style{

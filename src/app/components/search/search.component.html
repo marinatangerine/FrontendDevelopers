@@ -1,31 +1,9 @@
-<div class = "container">
-    <h1>Songs List</h1>
+<div class="searcher">
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <input type="text" class="form-control" name="filterSongs" placeholder="Buscar canción...." [(ngModel)]="filterSongs">
+          <input class="searcher__input" type="text" class="form-control" name="filterSongs" placeholder="Search..." [(ngModel)]="filterSongs" (keyup)="filterBySongName(filterSongs)">
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Autor</th>
-              <th>Title</th>
-              <th>album</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of search | filter:filterSongs">
-              
-              <td>{{item.author}}</td>
-              <td>{{item.title}}</td>
-              <td>{{item.album}}</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
   </div>

@@ -1,11 +1,6 @@
-.search{
-    position: relative;
-    width: 60vw;
-    padding: 0 0 0 40vw;
-}
-
-.search__body{
-    display: flex;
-    width: 60vw;
-    justify-content: left;
+.searcher input{
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 90%;
 }

@@ -4,28 +4,33 @@
             <div class="playList__songs__header">
                 <h2>My Playlist</h2>
             </div>
-            <ul class="songs">
-                <li class="song" 
-                *ngFor="let song of songs"
-                [class.selected]="song === selectedSong"
-                (click)="onSelect(song)">
-                    <div class="song__cover" [ngStyle]="{ 'background-image': 'url(assets/'+song.cover+')'}"></div>
-                    <div class="song__info">
-                        <div class="song__info__left">
-                            <div class="song__info__title">{{song.title}}</div>
-                            <div class="song__info__author">{{song.author}}</div>
+            <app-search (filter)="filter($event)"></app-search>
+            <div class="wrapper-songs">
+                <ul class="songs">
+                    <li class="song" 
+                    *ngFor="let song of songs | filter: filterSongs"
+                    [class.selected]="song === selectedSong"
+                    (click)="onSelect(song)">
+                        <div (click)="onPlay(song)" class="song__cover" [ngStyle]="{ 'background-image': 'url(assets/'+song.cover+')'}">
+                            <i class="fas fa-play"></i>
                         </div>
-                        <div class="song__info__right">
-                            <div class="song__info__style">{{song.style}}</div>
-                            <div class="song__info__duration">{{song.duration}}</div>
+                        <div class="song__info">
+                            <div class="song__info__left">
+                                <div class="song__info__title">{{song.title}}</div>
+                                <div class="song__info__author">{{song.author}}</div>
+                            </div>
+                            <div class="song__info__right">
+                                <div class="song__info__style">{{song.style}}</div>
+                                <div class="song__info__duration">{{song.duration}}</div>
+                            </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="playList__songs__details">
             <app-song-detail [song]="selectedSong"></app-song-detail>
         </div>
     </div>
-
+    <app-reproducer [song]="playedSong"></app-reproducer>
 </div>

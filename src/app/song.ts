@@ -9,4 +9,5 @@ export class Song {
     description: string;
     picture: string;
     cover: string;
+    audio_url: string;
   }
