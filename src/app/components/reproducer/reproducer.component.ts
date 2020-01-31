@@ -30,14 +30,18 @@ export class ReproducerComponent implements OnInit {
   
 
   ngOnChanges() {
-    this.audio = new Audio();
-    this.audio.src = this.song.audio_url;
-    this.onPlay();
+    if (this.song) {
+      this.audio = new Audio();
+      this.audio.src = this.song.audio_url;
+      this.onPlay();
+    }
   }
 
   onPlay() {
     this.audio.play();
-    this.interval = setInterval(function () { this.audio.play() }, 1000);
+    this.interval = setInterval(function () {
+      //do nothing. this just keeps the bar refreshing
+    }, 1000);
     this.stop = false;
   }
 
@@ -52,9 +56,11 @@ export class ReproducerComponent implements OnInit {
   }
 
   onStop() {
-    clearInterval(this.interval);
-    this.audio.src = this.song.audio_url;
-    this.stop = true;
+    if (this.song) {
+      clearInterval(this.interval);
+      this.audio.src = this.song.audio_url;
+      this.stop = true;
+    }
   }
 
   toHumanTime(length) {
