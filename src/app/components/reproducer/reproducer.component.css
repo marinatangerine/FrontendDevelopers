@@ -4,7 +4,7 @@
 }
 
 .reproducer{
-    background-color: #6f6f6f;
+    background-color: #fff;
     padding: 20px 36px;
     height: 119px;
     display: flex;
@@ -14,6 +14,7 @@
     transform: translateY(119px);
     transition: all 0.2s ease-out;
     width: 100%;
+    box-shadow: 0px -7px 32px -11px rgba(0,0,0,0.58);
 }
 
     .reproducer.active{
@@ -32,6 +33,7 @@
         border-radius: 5px;
         background-size: cover;
         background-position: center;
+        box-shadow:  2px 2px 14px 0px rgba(50, 50, 50, 0.38);
     }
 
     .reproducer__trackInfo__data{
@@ -42,11 +44,13 @@
             font-size: 18px;
             font-weight: 900;
             margin-bottom: 8px;
+            color: #ff4081;
         }
 
         .reproducer__trackInfo__data__songAuthor{
             font-size: 18px;
             font-weight: 700;
+            color:#000;
         }
 
 .reproducer__trackInfo{
@@ -108,13 +112,14 @@
                 display: flex;
                 justify-content: center;
                 align-self: center;
+                color:#000;
             }
 
             .reproducer__track__timePlayed input{
                 width: 100%;
                 background-color: transparent;
                 border: 0;
-                color: #fff;
+                color: #000;
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
@@ -132,13 +137,7 @@
         margin-bottom: 6px;
     }
 
-        .reproducer__actions button{
-            font-size: 35px;
-            margin: 0 10px 10px;
-            border-radius: 5px;
-            color: #fff;
-            background-color: transparent;
-            border: 0;
-            padding: 0
+        .reproducer__actions .mat-icon{
+            transform: scale(2);
         }
 

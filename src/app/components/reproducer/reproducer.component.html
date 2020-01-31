@@ -8,14 +8,14 @@
   </div>
   <div class="reproducer__trackInfo__controls">
     <div class="reproducer__actions">
-      <button *ngIf="stop" class="reproducer__actions__play" type="button" (click)="onPlay()">
-        <i class="fas fa-play"></i>
+      <button color="primary" *ngIf="stop" class="reproducer__actions__play" mat-icon-button aria-label="play" (click)="onPlay()">
+        <mat-icon aria-hidden="false" aria-label="play song">play_arrow</mat-icon>
       </button>
-      <button *ngIf="!stop" class="reproducer__actions__pause" type="button" (click)="onPause()">
-        <i class="fas fa-pause"></i>
+      <button color="primary" *ngIf="!stop" class="reproducer__actions__pause" mat-icon-button aria-label="play" (click)="onPause()">
+        <mat-icon aria-hidden="false" aria-label="pause song">pause</mat-icon>
       </button>
-      <button class="reproducer__actions__stop" type="button" (click)="onStop()">
-        <i class="fas fa-stop"></i>
+      <button color="primary" class="reproducer__actions__stop" mat-icon-button aria-label="play" (click)="onStop()">
+        <mat-icon aria-hidden="false" aria-label="pause song">stop</mat-icon>
       </button>
     </div>
     <div class="reproducer__track">
