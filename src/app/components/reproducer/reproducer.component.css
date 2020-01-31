@@ -1,0 +1,144 @@
+::placeholder{
+    color:#fff;
+    opacity: 1;
+}
+
+.reproducer{
+    background-color: #6f6f6f;
+    padding: 20px 36px;
+    height: 119px;
+    display: flex;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(119px);
+    transition: all 0.2s ease-out;
+    width: 100%;
+}
+
+    .reproducer.active{
+        transform: translateY(0);
+    }
+
+.reproducer__trackInfo{
+    display: flex;
+    flex-basis: 40%;
+}
+
+    .reproducer__trackInfo__cover{
+        flex-basis: 67px;
+        height: 67px;
+        background-color: #fff;
+        border-radius: 5px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .reproducer__trackInfo__data{
+        padding-left: 20px;
+    }
+
+        .reproducer__trackInfo__data__songTitle{
+            font-size: 18px;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .reproducer__trackInfo__data__songAuthor{
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+.reproducer__trackInfo{
+    display: flex;
+    flex-basis: 40%;
+}
+
+.reproducer__trackInfo__controls{
+    display: flex;
+    flex-basis: 60%;
+    flex-flow: column;
+    align-items: center;
+}
+
+.reproducer__track{
+        display: flex;
+        font-size: 16px;
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .reproducer__track__timePlayed,
+        .reproducer__track__timeDuration{
+            max-width: 55px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reproducer__track__bar{
+            width: calc( 100% - 120px);
+            height: 6px;
+            position: relative;
+            margin: 0 20px;
+        }
+
+        .reproducer__track__bar:before{
+            content:"";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: #d8d8d8;
+            left: 0;
+            top: 0;
+            opacity: 0.44;
+        }
+
+        .reproducer__track{
+            display: flex;
+            font-size: 16px;
+            width: 80%;
+            justify-content: center;
+            align-items: center;
+        }
+    
+            .reproducer__track__timePlayed,
+            .reproducer__track__timeDuration{
+                max-width: 55px;
+                display: flex;
+                justify-content: center;
+                align-self: center;
+            }
+
+            .reproducer__track__timePlayed input{
+                width: 100%;
+                background-color: transparent;
+                border: 0;
+                color: #fff;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                position: relative;
+                top: -1px;
+            }
+            
+            app-track-song{
+                width: 80%;
+            }
+
+    .reproducer__actions{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 6px;
+    }
+
+        .reproducer__actions button{
+            font-size: 35px;
+            margin: 0 10px 10px;
+            border-radius: 5px;
+            color: #fff;
+            background-color: transparent;
+            border: 0;
+            padding: 0
+        }
+
