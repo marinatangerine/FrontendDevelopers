@@ -54,6 +54,12 @@
             font-weight: 800;
             font-size: 1.8rem;
           }
+          .large-textarea textarea {
+            font-family: Courier, sans-serif;
+            height: 200mm;
+            width: 500mm;
+            font-size: 0pt;
+          }
   
       .card__songData__desc{
         font-weight: 300;
@@ -89,18 +95,5 @@
           background: -webkit-linear-gradient(top,  rgba(63,81,181,0) 0%,rgba(63,81,181,0.01) 1%,rgba(63,81,181,0.67) 65%,rgba(63,81,181,1) 99%); /* Chrome10-25,Safari5.1-6 */
           background: linear-gradient(to bottom,  rgba(63,81,181,0) 0%,rgba(63,81,181,0.01) 1%,rgba(63,81,181,0.67) 65%,rgba(63,81,181,1) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003f51b5', endColorstr='#3f51b5',GradientType=0 ); /* IE6-9 */
-        }
-
-        .example-form {
-          min-width: 150px;
-          max-width: 500px;
-          width: 100%;
-          background-color: #fff;
-          background-size: cover;
-        }
-        
-        .example-full-width {
-          width: 100%;
-        }
-  
+        }  
   
