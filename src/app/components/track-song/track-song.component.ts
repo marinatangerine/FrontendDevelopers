@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { Song } from '../../song';
+import { Song } from '../../clases/song';
 
 @Component({
   selector: 'app-track-song',
@@ -22,7 +22,6 @@ export class TrackSongComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(`value: ${this.valuePlayedTime}`)
   }
 
   percentToSeconds(event: any){

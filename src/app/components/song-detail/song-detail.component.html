@@ -8,24 +8,26 @@
             <ul class="card__songData__metadata">
               <li>
                 <dl>
-                  <dt>Style</dt>
+                  <dt><input readonly matInput placeholder="Style" value=""></dt>
                   <dd>{{song.style}}</dd>
                 </dl>
               </li>
               <li>
                 <dl>
-                  <dt>Year</dt>
+                  <dt><input readonly matInput placeholder="Style" value=""></dt>
                   <dd>{{song.year}}</dd>
                 </dl>
               </li>
               <li>
                 <dl>
-                  <dt>Duration</dt>
+                  <dt><input readonly matInput placeholder="Style" value=""></dt>
                   <dd>{{song.duration}}</dd>
                 </dl>
               </li>
             </ul>
-            <p class="card__songData__desc">{{song.description}} <a href="#">Más info</a></p>
+            <textarea readonly>
+             {{song.description}} 
+            </textarea>
           </div>
   </section>
 </div>

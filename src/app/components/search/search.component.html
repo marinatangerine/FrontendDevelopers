@@ -2,7 +2,14 @@
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <input class="searcher__input" type="text" class="form-control" name="filterSongs" placeholder="Search..." [(ngModel)]="filterSongs" (keyup)="filterBySongName(filterSongs)">
+
+          <mat-form-field>
+            <input type="text" placeholder="Escribe aquí el título de la canción que quieres buscar..." matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="filterSongs" (keyup)="filterBySongName(filterSongs)">
+          </mat-form-field>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option  *ngFor="let option of filteredOptions | async" [value]="option" (click)="filterBySongName(option)">{{option}}</mat-option>
+          </mat-autocomplete>
+          <!--<input  type="text" class="form-control" name="filterSongs" placeholder="Search..." [(ngModel)]="filterSongs" (keyup)="filterBySongName(filterSongs)">-->
         </div>
       </div>
     </div>

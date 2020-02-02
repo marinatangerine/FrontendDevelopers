@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Song } from '../../song';
-import { SONGS } from '../../mock-songs';
+import { Song } from '../../clases/song';
+import { SONGS } from '../../mock/mock-songs';
 import { ReproducerComponent } from '../reproducer/reproducer.component'
 
 @Component({
@@ -31,7 +31,7 @@ export class PlaylistComponent implements OnInit {
   }
 
   filter(event){
-    console.log(`filter: ${event}`);
+    //console.log(`filter: ${event}`);
     this.filterSongs = event;
   }
 }
