@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild} from '@angular/core';
-import { Song } from '../../song';
+import { Song } from '../../clases/song';
 import { TrackSongComponent } from "../track-song/track-song.component";
 
 @Component({
@@ -74,7 +74,7 @@ export class ReproducerComponent implements OnInit {
   }
 
   refreshTimePlayed(event){
-    console.log(`event: ${event}`);
+    //console.log(`event: ${event}`);
     this.valuePlayedTime = this.toHumanTime(event);
     this.audio.currentTime = this.toSeconds(this.valuePlayedTime);
   }
@@ -106,7 +106,4 @@ export class ReproducerComponent implements OnInit {
     this.audio.currentTime = this.toSeconds(this.valuePlayedTime);
     this.toHumanTime(this.audio.currentTime);
   }
-
-
-  
 }

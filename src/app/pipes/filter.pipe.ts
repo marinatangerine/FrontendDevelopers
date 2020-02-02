@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Song } from '../song';
-import { SONGS } from '../mock-songs';
+import { Song } from '../clases/song';
+import { SONGS } from '../mock/mock-songs';
 
 @Pipe({
   name: 'filter'
