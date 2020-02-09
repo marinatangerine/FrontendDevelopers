@@ -12,8 +12,8 @@ export class AppComponent {
   title = 'WebMusicApp';
   
  //constructor para firebase
-  public items: Observable<any[]>;
+  public songs: Observable<any[]>;
   constructor(db: AngularFirestore) {
-    this.items = db.collection('items').valueChanges();
+    this.songs = db.collection('songs').valueChanges();
   }
 }
