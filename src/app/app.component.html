@@ -1,2 +1,7 @@
-  <app-playlist></app-playlist>
-
+<app-playlist></app-playlist>
+// para firebase
+  <ul>
+    <li class="text" *ngFor="let item of items | async">
+      {{item.name}}
+    </li>
+  </ul>
