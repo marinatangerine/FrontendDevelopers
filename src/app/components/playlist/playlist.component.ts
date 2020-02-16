@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Song } from '../../song';
-import { SONGS } from '../../mock-songs';
-import { ReproducerComponent } from '../reproducer/reproducer.component'
+import { ReproducerComponent } from '../reproducer/reproducer.component';
+import { Observable } from 'rxjs';
+import { FirebaseService } from '../../services/firebase.service';
 
 @Component({
   selector: 'app-playlist',
@@ -10,13 +11,20 @@ import { ReproducerComponent } from '../reproducer/reproducer.component'
 })
 
 export class PlaylistComponent implements OnInit {
+  
+  @Input() songs: Observable<Song>;
+
   @ViewChild(ReproducerComponent, {static: false}) player:ReproducerComponent ;
-  songs = SONGS;
+
   selectedSong: Song;
   playedSong: Song;
-  filterSongs:string;
+  filterSongs: object;
+  searchValue: string;
+  
 
-  constructor() { }
+  constructor(
+    public firebaseService: FirebaseService
+  ) { }
 
   ngOnInit() {
   }
@@ -30,8 +38,24 @@ export class PlaylistComponent implements OnInit {
     this.player.onStop();
   }
 
-  filter(event){
+  /*searchByName(event){
     console.log(`filter: ${event}`);
-    this.filterSongs = event;
+    /*let value = this.searchValue.toLowerCase();
+    this.firebaseService.searchSongs(value)
+    .subscribe(result => {
+      this.filterSongs = result;
+    })
+  }*/
+
+  
+
+  searchByName(event){
+    let value = event.toLowerCase();
+    console.log(`filter: ${value}`);
+    this.firebaseService.searchSongs(value)
+    .subscribe(result => {
+      this.filterSongs = result;
+    })
+    console.log(this.filterSongs);
   }
 }

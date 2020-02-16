@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild} from '@angular/core';
-import { Song } from '../../song';
 import { TrackSongComponent } from "../track-song/track-song.component";
+import { Observable } from 'rxjs';
+import { Song } from '../../song';
 
 @Component({
   selector: 'app-reproducer',
@@ -11,7 +12,7 @@ export class ReproducerComponent implements OnInit {
 
   @ViewChild(TrackSongComponent, {static: false}) tracksong:TrackSongComponent ;
   
-  @Input() song: Song;
+  @Input() song: Observable<Song>;
 
   audio: HTMLAudioElement;
   interval: NodeJS.Timer;

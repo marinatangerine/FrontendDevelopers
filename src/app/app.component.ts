@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
-//para fire base
-import { AngularFirestore } from '@angular/fire/firestore';
+import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import 'firebase/firestore';
+//para fire base
+import { FirebaseService } from './services/firebase.service';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +10,21 @@ import 'firebase/firestore';
 })
 export class AppComponent {
   title = 'WebMusicApp';
-  
- //constructor para firebase
+
   songs: Observable<any[]>;
-  constructor(db: AngularFirestore) {
-    this.songs = db.collection('songs').valueChanges();
+
+  constructor(
+    public firebaseService: FirebaseService
+  ) { }
+
+  ngOnInit() {
+    this.getData();
   }
+
+  getData(){
+    // llamamos el método getSongs del servicio de firebabse y lo
+    // asignamos a songs, que es del tipo observable
+    this.songs = this.firebaseService.getSongs()
+  }
+
 }

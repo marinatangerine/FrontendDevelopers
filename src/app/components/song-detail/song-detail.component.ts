@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Song } from '../../song';
+import { Observable } from 'rxjs';
+import { Song } from 'src/app/song';
 
 @Component({
   selector: 'app-song-detail',
@@ -7,7 +8,7 @@ import { Song } from '../../song';
   styleUrls: ['./song-detail.component.css']
 })
 export class SongDetailComponent implements OnInit {
-  @Input() song: Song;
+  @Input() song: Observable<Song>;
 
   constructor() { }
 
