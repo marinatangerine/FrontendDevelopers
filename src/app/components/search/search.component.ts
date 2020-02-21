@@ -11,26 +11,29 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class SearchComponent implements OnInit {
 
-
-
   constructor() { }
-    //usamos función del padre
+    // Emitimos el evento filter para que el padre lod etecte
     @Output() filter: EventEmitter<any> = new EventEmitter<any>();
-    @Input() songs: Song;
+    // Cargamos las cancioens a traves de un observable del tipo Song
+    @Input() songs: Observable<Song[]>;
+    
+    myControl = new FormControl();
+    filteredOptions: Observable<string[]>;
+    options:string[] = [];
     
     filterBySongName(songName){
       console.log(`emit value: ${songName}`)
       this.filter.emit(songName);
     }
-    myControl = new FormControl();
-    
-    filteredOptions: Observable<string[]>;
-    options:string[] = [];
-
+  
     fillOptionsArray(object){
-      object.map(item => {
-        this.options.push(item.title);
+      // nos suscribimos al observable para sacar los datos y montar el nuevo array de búsqueda
+      this.songs.subscribe(result => {
+        result.map(item => {
+          this.options.push(item.title);
+        })
       })
+      
     }
 
     ngOnInit() {

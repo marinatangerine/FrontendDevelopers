@@ -9,19 +9,24 @@
               <li>
                 <dl>
                   <dt>Style</dt>
-                  <dd><input readonly matInput value="{{song.style}}"></dd>
+                  <dd>
+                    <editField [field]="'style'" [text]="song.style" (onEdit)="onEdit($event)" (onSave)="onSave($event)" (onClose)="onCloseEdit($event)"></editField>
+                  </dd>
                 </dl>
               </li>
               <li>
                 <dl>
                   <dt>Year</dt>
-                  <dd><input readonly matInput value="{{song.year}}"></dd>
+                  <dd>
+                    <editField [field]="'year'" [text]="song.year" (onEdit)="onEdit($event)" (onSave)="onSave($event)" (onClose)="onCloseEdit($event)"></editField>
                 </dl>
               </li>
               <li>
                 <dl>
                   <dt>Duration</dt>
-                  <dd><input readonly matInput value="{{song.duration}}"></dd>
+                  <dd>
+                    <editField [field]="'duration'" [text]="song.duration" (onEdit)="onEdit($event)" (onSave)="onSave($event)" (onClose)="onCloseEdit($event)"></editField>
+                  </dd>
                 </dl>
               </li>
             </ul>

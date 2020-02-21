@@ -39,6 +39,10 @@
         display: flex;
         justify-content: space-between;
       }
+
+        .card__songData__metadata li {
+          width: 33.33%;
+        }
   
         .card__songData__metadata li:not(:last-child) {
           margin-right: 16px;

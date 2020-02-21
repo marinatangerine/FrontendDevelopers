@@ -1,7 +1,6 @@
 .playList{
     position: relative;
-    width: 70vw;
-    margin: 0 0 0 30vw;
+    width: 100vw;
     overflow: hidden;
     height: 100vh;
 }
@@ -21,13 +20,12 @@
 
     .playList__songs{
         padding: 18px 9px 18px 18px;
-        width: 100%;
+        width: 50%;
     }
 
     .playList__songs__details{
         height: 100vh;
-        max-width: 40%;
-        min-width: 387px;
+        width: 60%;
         background-color: #3f51b5
     }
 
