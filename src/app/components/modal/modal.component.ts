@@ -14,7 +14,8 @@ const URL = 'http://localhost:4200/src/assets/img';
 })
 export class ModalComponent implements OnInit {
 
-  path:string = 'assets/img';
+  path: string = 'assets/img';
+  pathMp3: string = 'assets/mp3'; 
 
   public uploader: FileUploader = new FileUploader({url: URL, itemAlias: 'photo'});
   
@@ -69,7 +70,7 @@ export class ModalComponent implements OnInit {
     let {picture, cover, audio_url} = this.registerForm.value;
     
     //Mediante la función cleanUrlPath limpiamos la url por si el navegador añade el fakeurl delante, y
-    //subtituímos de nuevo el valor en el objeto del formulario
+    //sustituímos de nuevo el valor en el objeto del formulario
     this.registerForm.value['picture'] = this.cleanUrlPath(picture);
     this.registerForm.value['cover'] = this.cleanUrlPath(cover);
     this.registerForm.value['audio_url'] = this.cleanUrlPath(audio_url);
@@ -84,10 +85,11 @@ export class ModalComponent implements OnInit {
     this.cerrarDialogo();
   }
 
-  cleanUrlPath(prop){
+  cleanUrlPath(prop) {
     let path = "C:\\fakepath\\";
     let cleanPaths = [];
-    if(prop.indexOf(path) != -1) return `../../${this.path}/${prop.slice(path.length,prop.length)}`;
+    var realPath = (prop.indexOf('.mp3') > 0 || prop.indexOf('.m4a') > 0) ? this.pathMp3 : this.path;
+    if(prop.indexOf(path) != -1) return `../../${realPath}/${prop.slice(path.length,prop.length)}`;
   }
   
   submit(){

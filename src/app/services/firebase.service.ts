@@ -14,10 +14,10 @@ export class FirebaseService {
   }
 
   updateDetail(song: Song, field: string, text: string){
-    /*let songDetails = this.db.doc(`/songs/${song.songId}`);
+    let songDetails = this.db.doc(`/songs/${song.songId}`);
     songDetails.set({
-      [field]: [text]
-    })*/
+      [field]: text
+    }, {merge: true})
   }
 
   saveSong (song: Song): void {
