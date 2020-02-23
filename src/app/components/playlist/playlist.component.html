@@ -3,6 +3,7 @@
         <div class="playList__songs">
             <div class="playList__songs__header">
                 <h2>My Playlist</h2>
+                <button mat-raised-button color="primary" (click)="openDialog()">Añadir canción</button>
             </div>
             <app-search [songs]="songs" (filter)="searchByName($event)"></app-search>
             <div class="wrapper-songs">
@@ -12,7 +13,7 @@
                         class="song" [class.selected]="song === selectedSong" 
                         (click)="onSelect(song)"
                         id="{{song.songId}}">
-                        <div (click)="onPlay(song)" class="song__cover" [ngStyle]="{ 'background-image': 'url(assets/'+song.cover+')'}">
+                        <div (click)="onPlay(song)" class="song__cover" [ngStyle]="{ 'background-image': 'url(assets/img/'+song.cover+')'}">
                             <mat-icon aria-hidden="false" aria-label="play song">play_arrow</mat-icon>
                         </div>
                         <div class="song__info">

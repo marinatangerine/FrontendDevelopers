@@ -9,17 +9,31 @@ export class FirebaseService {
   
   constructor(public db: AngularFirestore) {}
   
-  songDoc: AngularFirestoreDocument<Song[]>;
-
   getSongs(){
     return this.db.collection('/songs').valueChanges({idField: 'songId'})
   }
 
   updateDetail(song: Song, field: string, text: string){
-    let songDetails = this.db.doc(`/songs/${song.songId}`);
+    /*let songDetails = this.db.doc(`/songs/${song.songId}`);
     songDetails.set({
       [field]: [text]
-    })
+    })*/
   }
 
+  saveSong (song: Song): void {
+    console.log(song.songId);
+    console.log(song.title);
+    this.db.collection('/songs').doc(song.songId).set({
+      title: song.title,
+      album: song.album,
+      author: song.author,
+      style: song.style,
+      year: song.year,
+      duration: song.duration,
+      description: song.description,
+      picture: song.picture,
+      cover: song.cover,
+      audio_url: song.audio_url
+    });
+  }
 }

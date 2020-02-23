@@ -2,11 +2,13 @@
     background-color: #3f51b5;
     padding: 0;
     border: 0;
+    height: 100vh;
   }
   
     .card__songData {
-        padding: 0 32px 32px;
+        padding: 45px 32px 32px;
         color: #fff;
+        z-index: 1;
     }
   
       .card__songData span {
@@ -83,14 +85,15 @@
         height: 45vh;
         width: 100%;
         background-size: cover;
-        background-position: center;
+        background-position: 0 -67px;
         position: relative;
+        transform: translateX(-22px) scale(1.5);
       }
   
         .card__picture:after{
           content: "";
           position: absolute;
-          bottom: 0;
+          bottom: -2px;
           left:0;
           width: 100%;
           height: 100%;
@@ -102,18 +105,22 @@
         }  
   
 
-.card textarea{
-  background-color: transparent;
-  font-size: 16px;
-  font-weight: 300;
-  color: #fff;
-  line-height: 25px;
-  border: 0;
-  width: 100%;
-  height: auto;
-  text-align: left;
-  white-space: normal;
-  height: 257px;
-  padding-right: 12px;
-  resize: none;
+      .card textarea{
+        background-color: transparent;
+        font-size: 16px;
+        font-weight: 300;
+        color: #fff;
+        line-height: 25px;
+        border: 0;
+        width: 100%;
+        height: auto;
+        text-align: left;
+        white-space: normal;
+        height: 257px;
+        padding-right: 12px;
+        resize: none;
+      }
+
+.playList__songs__details{
+  height: 100vw;
 }
