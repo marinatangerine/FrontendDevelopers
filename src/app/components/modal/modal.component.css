@@ -51,7 +51,7 @@
         transition: all 0.3s ease-in;
         pointer-events: none;
     }
-
+    
     #modal-body .grid.media input.ng-touched + button{
         pointer-events: visible;
     }

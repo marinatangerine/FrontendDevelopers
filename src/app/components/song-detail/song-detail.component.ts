@@ -41,6 +41,7 @@ export class SongDetailComponent implements OnInit {
   }
 
   onSave(object){
+    console.log(`field: ${object.field}`);
     this.firebaseService.updateDetail(this.song, object.field, object.text);
     //Cerramos el campo editable
     this.onCloseEdit(object.event);

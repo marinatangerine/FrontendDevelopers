@@ -25,13 +25,19 @@ export class EditInputComponent implements OnInit {
   }
 
   onSaveField(event: any, field: string, text: string){
+    console.log(`field: ${field} `);
     this.onSave.emit(
       {
-        event: event, 
-        field: field, 
+        event: event,
+        field: field,
         text: text
       }
     );
+  }
+
+  changeText(event:any){
+    let value = event.target.value;
+    this.text = value;
   }
 
   onCloseField(event: any){
@@ -40,3 +46,4 @@ export class EditInputComponent implements OnInit {
 
 
 }
+

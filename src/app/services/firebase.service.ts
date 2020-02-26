@@ -14,6 +14,9 @@ export class FirebaseService {
   }
 
   updateDetail(song: Song, field: string, text: string){
+    console.log(`songID: ${song.songId}`);
+    console.log(`field: ${field}`);
+    console.log(`text: ${text}`);
     let songDetails = this.db.doc(`/songs/${song.songId}`);
     songDetails.set({
       [field]: text

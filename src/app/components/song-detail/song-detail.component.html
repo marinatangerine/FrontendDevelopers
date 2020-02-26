@@ -23,16 +23,12 @@
               </li>
               <li>
                 <dl>
-                  <dt>Duration</dt>
-                  <dd>
-                    <editField [field]="'duration'" [text]="song.duration" (onEdit)="onEdit($event)" (onSave)="onSave($event)" (onClose)="onCloseEdit($event)"></editField>
-                  </dd>
+                  <dt><input readonly matInput placeholder="Duration" value=""></dt>
+                  <dd>{{song.duration}}</dd>
                 </dl>
               </li>
             </ul>
-            <textarea readonly>
-             {{song.description}} 
-            </textarea>
+            <editField [field]="'description'" [text]="song.description" (onEdit)="onEdit($event)" (onSave)="onSave($event)" (onClose)="onCloseEdit($event)"></editField>
           </div>
   </section>
 </div>
