@@ -5,7 +5,6 @@
 
 .reproducer{
     background-color: #fff;
-    padding: 20px 36px;
     height: 119px;
     display: flex;
     color: #fff;
@@ -19,6 +18,7 @@
 
     .reproducer.active{
         transform: translateY(0);
+        z-index: 2;
     }
 
 .reproducer__trackInfo{
@@ -27,21 +27,24 @@
 }
 
     .reproducer__trackInfo__cover{
-        flex-basis: 67px;
-        height: 67px;
+        flex-basis: 200px;
+        height: 100%;
         background-color: #fff;
-        border-radius: 5px;
         background-size: cover;
         background-position: center;
         box-shadow:  2px 2px 14px 0px rgba(50, 50, 50, 0.38);
     }
 
-    .reproducer__trackInfo__data{
-        padding-left: 20px;
+    .reproducer__trackInfo__data,
+    .reproducer__trackInfo__controls{
+        padding: 20px 36px;
+        justify-content: center;
+        display: flex;
+        flex-flow: column;
     }
 
         .reproducer__trackInfo__data__songTitle{
-            font-size: 18px;
+            font-size: 24px;
             font-weight: 900;
             margin-bottom: 8px;
             color: #ff4081;

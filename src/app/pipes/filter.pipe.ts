@@ -1,21 +1,17 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import { Song } from '../clases/song';
-import { SONGS } from '../mock/mock-songs';
+import {Pipe, PipeTransform} from '@angular/core';
+import * as _ from 'lodash';
 
 @Pipe({
-  name: 'filter'
+  name: 'search'
 })
-export class FilterPipe implements PipeTransform {
+export class SearchPipe implements PipeTransform {
 
-  transform(value: any, ...arg:any): any {
-    const resultSong = [];
-    for(const song of SONGS){
-      if(song.title.indexOf(arg)> -1){
-        resultSong.push(song);
-      }
+  transform(value: any, args?: any): any {
 
+    if (args) {
+      return _.filter(value, d => _.find(_.valuesIn(d), v => 
+          _.toLower(v).indexOf(_.toLower(args)) !== -1));
     }
-    return resultSong;
+    return value;
   }
-
 }

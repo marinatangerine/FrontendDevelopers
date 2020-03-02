@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild} from '@angular/core';
-import { Song } from '../../clases/song';
 import { TrackSongComponent } from "../track-song/track-song.component";
+import { Observable } from 'rxjs';
+import { Song } from '../../clases/song';
 
 @Component({
   selector: 'app-reproducer',
